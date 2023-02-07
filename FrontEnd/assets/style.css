@@ -185,4 +185,30 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+#filtres
+{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1em;
+}
+button
+{
+	font-family: 'Syne';
+display: flex;
+justify-content: center;
+align-items: center;
+color: #1D6154;
+border: 1px solid #1D6154;
+border-radius: 60px; 
+background-color: unset;
+margin-left: 1em;
+padding: 1em;
+height: 37px;
+min-width: 75px;
 
+}
+button:active
+{
+	color: white;
+	background-color:#1D6154;
+}
