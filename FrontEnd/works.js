@@ -1,4 +1,4 @@
-
+//appel de l'API pour générer les travaux
 fetch('http://localhost:5678/api/works')
 .then((response) => response.json())
 .then((data) =>
@@ -19,4 +19,6 @@ fetch('http://localhost:5678/api/works')
     workElement.appendChild(imageElement);
     workElement.appendChild(titleElement);
         }}
-)
+);
+//mis en place des filtres
+document.getElementById("filtre_tous");
