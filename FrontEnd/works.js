@@ -3,18 +3,17 @@
 const divGallery = document.querySelector(".gallery");
 function generateWork(){ fetch('http://localhost:5678/api/works')
 .then((works) => works.json())
-.then((works) =>
-
-   { console.table(works);
+.then(function generateWork(works) 
+   {
     for (let i=0 ; i<=works.length; i++)
     {
-        const work = works[i];
-        const workElement = document.createElement ("figure");
-        const imageElement = document.createElement('img');
-            imageElement.src = work.imageUrl;
+        let work = works[i];
+        let workElement = document.createElement ("figure");
+        let imageElement = document.createElement('img');
+            imageElement.setAttribute ("src", work.imageUrl);
             imageElement.setAttribute ("crossOrigin" , "anonymous");
             imageElement.setAttribute ("alt" , work.title);
-        const titleElement = document.createElement('figcaption');
+        let titleElement = document.createElement('figcaption');
             titleElement.innerText =work.title;
     divGallery.appendChild(workElement);
     workElement.appendChild(imageElement);
