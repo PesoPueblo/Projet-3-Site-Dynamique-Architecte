@@ -1,26 +1,29 @@
 //appel de l'API pour générer les travaux
 
 const divGallery = document.querySelector(".gallery");
-function generateWork(){ fetch('http://localhost:5678/api/works')
-.then((works) => works.json())
-.then(function generateWork(works) 
-   {
-    for (let i=0 ; i<=works.length; i++)
-    {
-        let work = works[i];
-        let workElement = document.createElement ("figure");
-        let imageElement = document.createElement('img');
-            imageElement.setAttribute ("src", work.imageUrl);
-            imageElement.setAttribute ("crossOrigin" , "anonymous");
-            imageElement.setAttribute ("alt" , work.title);
-        let titleElement = document.createElement('figcaption');
-            titleElement.innerText =work.title;
-    divGallery.appendChild(workElement);
-    workElement.appendChild(imageElement);
-    workElement.appendChild(titleElement);
-        }}
-)};
-generateWork();
+async function arrayWork(){
+    const r = await fetch('http://localhost:5678/api/works')
+    if (r.ok === true){return r.json()}};
+
+function generateWork(works){
+    console.log(works);
+        for(let i=0 ; i<=works.length; i++)
+        {
+            let work = works[i];
+            let workElement = document.createElement ("figure");
+            let imageElement = document.createElement('img');
+                imageElement.setAttribute ("src", work.imageUrl);
+                imageElement.setAttribute ("crossOrigin" , "anonymous");
+                imageElement.setAttribute ("alt" , work.title);
+            let titleElement = document.createElement('figcaption');
+                titleElement.innerText =work.title;
+        divGallery.appendChild(workElement);
+        workElement.appendChild(imageElement);
+        workElement.appendChild(titleElement);
+            }
+        };
+arrayWork().then(works =>generateWork(works));
+
 
 
 //mis en place des filtres
@@ -34,10 +37,11 @@ filtreTous.addEventListener("click", function()
 {
     filtreTous.classList.add("active");
     filtreObjets.classList.remove("active");filtreAppartements.classList.remove("active");filtreAutres.classList.remove("active");
-    generateWork();
+    arrayWork().then(works => generateWork(works) );
 });
 filtreObjets.addEventListener("click", function()
 {
+        const listeObjets = arrayWork().then(works => filter)
         filtreObjets.classList.add("active");
         filtreTous.classList.remove("active");filtreAppartements.classList.remove("active");filtreAutres.classList.remove("active");
         generateWork();
