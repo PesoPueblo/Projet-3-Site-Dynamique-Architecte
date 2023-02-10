@@ -6,8 +6,8 @@ const filtreAppartements = document.getElementById("filtre_appartements");
 const filtreAutres = document.getElementById("filtre_autres");
 //déclare la fonction qui génère les travaux
 function generateWork(a)
-{console.table(a);
-    for (let i=0;i<= a.length;i++)
+{
+    for (let i=0;i< a.length;i++)
     {
         let work = a[i];
         let workElement = document.createElement ("figure");
@@ -29,7 +29,17 @@ const travaux=fetch('http://localhost:5678/api/works')
     .catch(function(err){console.log("dommage1")});
 //genere les travaux
 travaux .then(allWorks =>generateWork(allWorks))
-        .catch(function(err){console.log("dommage2")});
+                        //.catch(function(err){console.log("dommage2")});
+//pour affichage Tous seulement
+filtreTous.addEventListener("click", function()
+{divGallery.innerHTML="";
+travaux .then(allWorks =>generateWork(allWorks))
+        .catch(function(err){console.log("dommage6")});
+filtreTous.classList.add("active");
+filtreObjets.classList.remove("active");
+filtreAppartements.classList.remove("active");
+filtreAutres.classList.remove("active"); 
+});
 //pour affichage Objets seulement
 filtreObjets.addEventListener("click", function()
 {divGallery.innerHTML="";
