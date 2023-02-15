@@ -53,10 +53,36 @@ body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
-header {
+header{
 	display: flex;
+	flex-direction: column;
+}
+#Admintoolbarhide {
+	visibility: hidden;
+}
+#Admintoolbar {
+	visibility: visible;
+	width: 100%;
+	height: 59px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: black;
+	color: white;
+}
+
+#headbase {
+	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	margin: 50px 0
+}
+
+#savechange {
+	color: black;
+	background-color: white;
+	border: none;
+
 }
 section {
 	margin: 50px 0

@@ -1,3 +1,21 @@
+//récupération du token
+let token = localStorage.getItem("token");
+console.log(token);
+
+function modeAdmin(){
+    if (token != null){
+        //changement du lien login en logout et gestion du comportement
+        const linkConnect = document.querySelector("#connect");
+        linkConnect.innerHTML='<a href="index.html">logout</a>';
+        linkConnect.addEventListener('click', ()=>{localStorage.removeItem("token")});
+        //rajout de la bar d'admin
+        const toolAdmin = document.querySelector("#Admintoolbarhide");
+        toolAdmin.id= "Admintoolbar" ;
+        
+        
+    }
+}
+modeAdmin();
 //déclaration générale
 const divGallery = document.querySelector(".gallery");
 const filtreTous = document.getElementById("filtre_tous");
