@@ -154,6 +154,9 @@ main {
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+	display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .gallery {
 	width: 100%;
@@ -167,31 +170,37 @@ main {
 	width: 100%;
 
 }
-#contact {
-	width: 50%;
-margin: auto;
+
+#log {
+	padding-top: 100px;
+	padding-bottom: 200px;
 }
-#contact > * {
+
+#contact , #log {
+	width: 50%;
+	margin: auto;
+}
+#contact > * , #log > *{
 	text-align: center;
 
 }
-#contact h2{
+#contact h2, #log h2{
 	margin-bottom: 20px;
 }
-#contact form {
+#contact form , #log form{
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact input {
+#contact input , #log input{
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+#contact label , #log label{
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -215,6 +224,10 @@ footer nav ul {
 	justify-content: flex-end;
 	margin: 2em
 }
+footer {
+	margin: 50px 150px;
+}
+
 #filtres
 {
 	display: flex;
@@ -237,8 +250,22 @@ height: 37px;
 min-width: 75px;
 
 }
-.active
-{
+
+.active {
 	color: white;
 	background-color:#1D6154;
+}
+
+.buttonmodifier {
+	border: none;
+	color: black;
+	align-items: flex-start;
+}
+#icon{
+	height: 15px;
+	width: auto;
+}
+.hide
+{
+	visibility: hidden;
 }

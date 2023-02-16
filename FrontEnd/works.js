@@ -3,20 +3,27 @@ let token = localStorage.getItem("token");
 console.log(token);
 
 //gestion de la connexion si token existant
-function modeAdmin(){
-        if (token != null){
+if (token != null){
 
-        //changement du lien login en logout et gestion du comportement
+    //changement du lien login en logout et gestion du comportement
         const linkConnect = document.querySelector("#connect");
         linkConnect.innerHTML='<a href="index.html">logout</a>';
         linkConnect.addEventListener('click', ()=>{localStorage.removeItem("token")});
 
-        //rajout de la bar d'admin
+    //rajout de la bar d'admin
         const toolAdmin = document.querySelector("#Admintoolbarhide");
         toolAdmin.id= "Admintoolbar" ;  
+
+    //affichage des boutons "modifier"
+        const buttonModifier = document.querySelectorAll(".buttonmodifier");
+        buttonModifier.forEach(element => {
+                if (element.className = "buttonmodifier hide"){element.className= "buttonmodifier"}});
+
     }
+//création de la fonction modale 
+function modal() {
+
 }
-modeAdmin();
 
 //déclaration générale
 const divGallery = document.querySelector(".gallery");
