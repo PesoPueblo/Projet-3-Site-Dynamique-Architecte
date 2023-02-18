@@ -139,6 +139,7 @@ main {
 	display: block;
 	margin: auto;
 	width: 80%;
+	margin-bottom: 15px;
 }
 
 #introduction article {
@@ -146,6 +147,7 @@ main {
 }
 #introduction h2 {
 	margin-bottom: 1em;
+	margin-top: 15px;
 }
 
 #introduction p {
@@ -274,9 +276,15 @@ a {
 	color: black;
 	outline: none;
 	text-decoration: none;
-	font-size: 14px;
 	margin-bottom: 2em;
 	margin-left: 1em;
+}
+#lienmodal1 {
+
+margin-left: 57px;
+}
+#lienmodal2 {
+	margin-left: 0;
 }
 #titleportfolio {
 	display: flex;
@@ -326,8 +334,12 @@ a {
 	content: "X";
 	font-size: initial;	
 }
+.return:{
+	content: '<--';
+	font-size: initial;
+}
 
-.close {
+.close ,.return{
 	align-self: flex-end;
 	font-size: 0;
 	border: none;

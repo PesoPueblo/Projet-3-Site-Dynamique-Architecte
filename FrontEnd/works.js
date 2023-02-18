@@ -164,9 +164,26 @@ const openModal= function(event) {
     target.removeAttribute('aria-hidden');
     modal=target;
     modal.addEventListener('click', closeModal);
-    const boutonClose = modal.querySelector('.close');
+    let boutonClose = modal.querySelector('.close'); 
     boutonClose.addEventListener('click',closeModal);
-    const wrappeur = modal.querySelector('.modalwrapeur');
+    let wrappeur = modal.querySelector('.modalwrapeur');
+    wrappeur.addEventListener('click', stopPropag)    
+    const ajoutphoto= document.querySelector('#ajout')
+    ajoutphoto.addEventListener('click',openModal2)
+    ajoutphoto.addEventListener('click',closeModal)
+}
+
+const openModal2= function(event) { 
+    event.preventDefault();
+    const ajoutModal = document.querySelector('#modalajoutimage')
+    ajoutModal.removeAttribute('style', 'display');
+    ajoutModal.setAttribute('aria-modal', 'true');
+    ajoutModal.removeAttribute('aria-hidden');
+    ajoutModal.addEventListener('click', closeModal);
+    let modal=ajoutModal
+    let boutonClose = ajoutModal.querySelector('.close');
+    boutonClose.addEventListener('click',closeModal);
+    let wrappeur = ajoutModal.querySelector('.modalwrapeur');
     wrappeur.addEventListener('click', stopPropag)
 }
 
@@ -187,3 +204,4 @@ document.querySelectorAll('.js-modal')
     .forEach(Element=>{
              Element.addEventListener("click",openModal);
             })
+

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<script src="https://kit.fontawesome.com/31c993d592.js" crossorigin="anonymous"></script>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
@@ -19,13 +20,35 @@
 			<div class="gallerymodal">	
 			</div>
 			<hr>
-			<button type="button" class="active">A jouter une photo</button>
+			<button type="button" class="active" id="ajout"><a href="#modalajoutimage"> Ajouter une photo</a></button>
 			<a href="#" id="suppression">Supprimer la galerie</a>
+		</div>
+	</aside>
+	<aside id="modalajoutimage" class="modal" aria-hidden="true" style="display: none">
+		<div class="modalwrapeur">
+			<button type="button" class="js-return-modal return"><i class="fa-regular fa-arrow-left"></i></button>
+			<button type="button" class="js-close-modal close">Fermer la boite modal</button>
+			<h3 id="titlemodal">Ajout photo</h3>
+			<form action="ajoutphoto" method="post">
+				<input type="image" name="image" required="required">
+				<label for="titre">Titre</label>
+				<input type="text" name="titre" required="required">
+				<label for="categorie">Catégorie</label>
+				<select name="categorie" id="categorie-select" required="required">
+					<option value="1"> Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hotels & restaurants</option>
+				</select>
+				<hr>
+				<input type="button" name="valider" value="Valider">
+			
+			</form>
+
 		</div>
 	</aside>
 <header>
 	<div id="Admintoolbarhide">
-		<p><img src="assets/icons/modifier.png" alt="IconeModifier"> Mode d'édition</p>
+		<p><i class="fa-regular fa-pen-to-square"></i>Mode d'édition </p>
 		<button type="button" id="savechange">Publier les changements</button>
 	</div>
 	<div id="headbase">
@@ -44,10 +67,16 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="" id="profilpicture">
-			<a href="#modal2" class="buttonmodifier js-modal" style="display: none"><img src="assets/icons/modifier_n.png" alt="modifier" class="icon"> modifier</a>	
+			<a href="#modal2" class="buttonmodifier js-modal" style="display: none" id="lienmodal1">
+				<i class="fa-regular fa-pen-to-square"></i>
+				 modifier
+			</a>	
 		</figure>
 		<article>
-			<a href="#modal3" class="buttonmodifier js-modal" style="display: none"><img src="assets/icons/modifier_n.png" alt="modifier" class="icon"> modifier</a>
+			<a href="#modal3" class="buttonmodifier js-modal" style="display: none" id="lienmodal2">
+				<i class="fa-regular fa-pen-to-square"></i>
+				 modifier
+			</a>
 			<h2>Designer d'espace</h2>
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
@@ -58,7 +87,8 @@
 		<div id="titleportfolio">
 			<h2>Mes Projets </h2> 
 			<a href="#modal1" class="buttonmodifier js-modal" style="display: none">
-				<img src="assets/icons/modifier_n.png" alt="modifier" class="icon"> modifier
+				<i class="fa-regular fa-pen-to-square"></i>
+				 modifier
 			</a>
 		</div><div id="filtres">
 			<button type="button" id="filtre_tous" class="active">Tous</button>
