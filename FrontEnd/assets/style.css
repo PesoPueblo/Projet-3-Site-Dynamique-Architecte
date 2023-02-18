@@ -135,7 +135,7 @@ main {
 #introduction figure {
 	flex: 1
 }
-#introduction img {
+#profilpicture {
 	display: block;
 	margin: auto;
 	width: 80%;
@@ -261,11 +261,97 @@ min-width: 75px;
 	color: black;
 	align-items: flex-start;
 }
-#icon{
+.icon{
 	height: 15px;
 	width: auto;
 }
 .hide
 {
 	visibility: hidden;
+}
+
+a {
+	color: black;
+	outline: none;
+	text-decoration: none;
+	font-size: 14px;
+	margin-bottom: 2em;
+	margin-left: 1em;
+}
+#titleportfolio {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*section style de la modal*/
+.modal{
+    position: fixed;
+    width: 100%;
+	max-width: 1440px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modalwrapeur{
+    background-color: white;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 630px;
+    max-width: calc(100vw - 20px);
+    height: 731px;
+    padding: 20px;
+    align-items: center;
+
+}
+.gallerymodal {
+    margin: 1%;
+    width:80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap:2%;
+	grid-row-gap: 1%;
+	
+
+}
+
+.gallerymodal img {
+    width: 100%;
+}
+
+.close::before {
+	content: "X";
+	font-size: initial;	
+}
+
+.close {
+	align-self: flex-end;
+	font-size: 0;
+	border: none;
+	color: black;
+}
+
+#titlemodal {
+	font-size: 26px;
+	font-family: 'Work Sans';
+	margin-bottom: 1em;
+}
+hr {
+	border: none;
+    border-bottom: 2px solid #B3B3B3;
+    color: #B3B3B3;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+	width: 80%;
+	margin-top: 76px;
+	margin-bottom: 38px;
+}
+
+#suppression {
+	margin-top: 20px;
+	color: red;
 }

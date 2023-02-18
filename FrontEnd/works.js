@@ -16,14 +16,32 @@ if (token != null){
 
     //affichage des boutons "modifier"
         const buttonModifier = document.querySelectorAll(".buttonmodifier");
-        buttonModifier.forEach(element => {
-                if (element.className = "buttonmodifier hide"){element.className= "buttonmodifier"}});
-
+        buttonModifier.forEach(element => {element.removeAttribute("style")});
+    //cacher les filtres 
+        const filters = document.querySelector("#filtres");
+        filters.setAttribute("style", "display:none");
+    
     }
-//création de la fonction modale 
-function modal() {
 
-}
+//création de la fonction génération travaux pour la modal
+function generateWorkModal(works)
+{
+    for (let i=0;i< works.length;i++)
+    {
+        let work = works[i];
+        let workElementModal = document.createElement ("figure");
+        let imageElementModal = document.createElement('img');
+        imageElementModal.setAttribute ("src", work.imageUrl);
+        imageElementModal.setAttribute ("crossOrigin" , "anonymous");
+        imageElementModal.setAttribute ("alt" , work.title);
+        let titleEditionModal = document.createElement('figcaption');
+        titleEditionModal.innerText ="éditer";
+        const divGalleryModal= document.querySelector(".gallerymodal");
+        divGalleryModal.appendChild(workElementModal);
+        workElementModal.appendChild(imageElementModal);
+        workElementModal.appendChild(titleEditionModal);
+    }
+};
 
 //déclaration générale
 const divGallery = document.querySelector(".gallery");
@@ -132,3 +150,40 @@ filtreAutres.addEventListener("click", function(){
                                                 filtreAppartements.classList.remove("active");
                                                 filtreObjets.classList.remove("active");
                                                 });
+//générer les travaux dans la modal
+travaux .then(allWorks =>generateWorkModal(allWorks));    
+
+//ouverture et fermeture de la boite modale
+let modal= null;
+const stopPropag = function(event){ event.stopPropagation()}
+const openModal= function(event) { 
+    event.preventDefault();
+    const target = document.querySelector(event.target.getAttribute('href'));
+    target.removeAttribute('style', 'display');
+    target.setAttribute('aria-modal', 'true');
+    target.removeAttribute('aria-hidden');
+    modal=target;
+    modal.addEventListener('click', closeModal);
+    const boutonClose = modal.querySelector('.close');
+    boutonClose.addEventListener('click',closeModal);
+    const wrappeur = modal.querySelector('.modalwrapeur');
+    wrappeur.addEventListener('click', stopPropag)
+}
+
+const closeModal= function(event) { 
+    if (modal == null) return
+    event.preventDefault();
+    modal.setAttribute('style', 'display: none');
+    modal.setAttribute('aria-hidden', 'true')
+    modal.removeAttribute('aria-modal', 'true')
+    modal.removeEventListener('click', closeModal)
+    modal.querySelector('.js-close-modal').removeEventListener('click',closeModal)
+    modal.querySelector('.modalwrapeur').removeEventListener('click', stopPropag)
+    modal=null
+};
+
+
+document.querySelectorAll('.js-modal')
+    .forEach(Element=>{
+             Element.addEventListener("click",openModal);
+            })
