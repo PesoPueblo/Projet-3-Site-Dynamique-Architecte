@@ -180,11 +180,10 @@ const openModal2= function(event) {
     ajoutModal.setAttribute('aria-modal', 'true');
     ajoutModal.removeAttribute('aria-hidden');
     ajoutModal.addEventListener('click', closeModal);
-    let modal=ajoutModal
+    
     let boutonClose = ajoutModal.querySelector('.close');
     boutonClose.addEventListener('click',closeModal);
     let wrappeur = ajoutModal.querySelector('.modalwrapeur');
-    wrappeur.addEventListener('click', stopPropag)
 }
 
 const closeModal= function(event) { 
