@@ -178,31 +178,34 @@ main {
 	padding-bottom: 200px;
 }
 
-#contact , #log {
+#contact , #log  {
 	width: 50%;
 	margin: auto;
 }
-#contact > * , #log > *{
+#contact > * , #log > * {
 	text-align: center;
 
 }
 #contact h2, #log h2{
 	margin-bottom: 20px;
 }
-#contact form , #log form{
+#contact form , #log form , #modalajoutimage form{
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
+#modalajoutimage form {
+	width: 80%;
+}
 
-#contact input , #log input{
+#contact input , #log input , #modalajoutimage input,#modalajoutimage select {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label , #log label{
+#contact label , #log label  , #modalajoutimage label{
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -277,7 +280,6 @@ a {
 	outline: none;
 	text-decoration: none;
 	margin-bottom: 2em;
-	margin-left: 1em;
 }
 #lienmodal1 {
 
@@ -290,6 +292,9 @@ margin-left: 57px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+#titleportfolio a {
+	margin-left: 1em;
 }
 
 /*section style de la modal*/
@@ -334,14 +339,14 @@ margin-left: 57px;
 	content: "X";
 	font-size: initial;	
 }
-.return:{
-	content: '<--';
-	font-size: initial;
-}
 
-.close ,.return{
+.close {
 	align-self: flex-end;
 	font-size: 0;
+	border: none;
+	color: black;
+}
+.return {
 	border: none;
 	color: black;
 }
@@ -366,4 +371,11 @@ hr {
 #suppression {
 	margin-top: 20px;
 	color: red;
+}
+.direction {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 2em;
 }
