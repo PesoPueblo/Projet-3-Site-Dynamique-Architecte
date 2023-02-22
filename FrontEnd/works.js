@@ -34,11 +34,14 @@ function generateWorkModal(works)
         imageElementModal.setAttribute ("src", work.imageUrl);
         imageElementModal.setAttribute ("crossOrigin" , "anonymous");
         imageElementModal.setAttribute ("alt" , work.title);
+        let buttonsuprimmer = document.createElement('i');
+        buttonsuprimmer.setAttribute('class',"fa-solid fa-trash-can")
         let titleEditionModal = document.createElement('figcaption');
         titleEditionModal.innerText ="éditer";
         const divGalleryModal= document.querySelector(".gallerymodal");
         divGalleryModal.appendChild(workElementModal);
         workElementModal.appendChild(imageElementModal);
+        workElementModal.appendChild(buttonsuprimmer)
         workElementModal.appendChild(titleEditionModal);
     }
 };
@@ -159,31 +162,29 @@ const stopPropag = function(event){ event.stopPropagation()}
 const openModal= function(event) { 
     event.preventDefault();
     const target = document.querySelector(event.target.getAttribute('href'));
-    target.removeAttribute('style', 'display');
+    console.log(target)
+    target.setAttribute('style', 'display: null');
     target.setAttribute('aria-modal', 'true');
     target.removeAttribute('aria-hidden');
     modal=target;
     modal.addEventListener('click', closeModal);
+
     let boutonClose = modal.querySelector('.close'); 
     boutonClose.addEventListener('click',closeModal);
+
     let wrappeur = modal.querySelector('.modalwrapeur');
     wrappeur.addEventListener('click', stopPropag)    
-    const ajoutphoto= document.querySelector('#ajout')
-    ajoutphoto.addEventListener('click',openModal2)
-    ajoutphoto.addEventListener('click',closeModal)
-}
 
-const openModal2= function(event) { 
-    event.preventDefault();
-    const ajoutModal = document.querySelector('#modalajoutimage')
-    ajoutModal.removeAttribute('style', 'display');
-    ajoutModal.setAttribute('aria-modal', 'true');
-    ajoutModal.removeAttribute('aria-hidden');
-    ajoutModal.addEventListener('click', closeModal);
+    const ajoutphoto= modal.querySelector('#ajout')
+    if (ajoutphoto != null){
+    ajoutphoto.addEventListener('click',closeModal)
+    ajoutphoto.addEventListener('click',openModal)}
+
+    let boutonReturn = modal.querySelector('.return')
+    if (boutonReturn != null){
+    boutonReturn.addEventListener('click',closeModal)
+    boutonReturn.addEventListener('click',openModal)}
     
-    let boutonClose = ajoutModal.querySelector('.close');
-    boutonClose.addEventListener('click',closeModal);
-    let wrappeur = ajoutModal.querySelector('.modalwrapeur');
 }
 
 const closeModal= function(event) { 
@@ -193,7 +194,7 @@ const closeModal= function(event) {
     modal.setAttribute('aria-hidden', 'true')
     modal.removeAttribute('aria-modal', 'true')
     modal.removeEventListener('click', closeModal)
-    modal.querySelector('.js-close-modal').removeEventListener('click',closeModal)
+    modal.querySelector('.close').removeEventListener('click',closeModal)
     modal.querySelector('.modalwrapeur').removeEventListener('click', stopPropag)
     modal=null
 };

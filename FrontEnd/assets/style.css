@@ -328,7 +328,23 @@ margin-left: 57px;
     grid-column-gap:2%;
 	grid-row-gap: 1%;
 	
+}
+.gallerymodal figure {
+	position: relative;
+}
 
+.gallerymodal i {
+	color: white;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;    
+	position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .gallerymodal img {
