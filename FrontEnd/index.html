@@ -13,7 +13,7 @@
 	<link rel="shortcut icon" href="#">
 </head>
 <body>
-	<aside id="modal1" class="modal" aria-hidden="true" style="display: none">
+	<aside id="modalsuppimg" class="modal" aria-hidden="true" style="display: none">
 		<div class="modalwrapeur">
 				<button type="button" class="js-close-modal close">Fermer la boite modal</button>
 			<h3 id="titlemodal">Galerie photo</h3>
@@ -27,11 +27,11 @@
 	<aside id="modalajoutimage" class="modal" aria-hidden="true" style="display: none">
 		<div class="modalwrapeur">
 			<div class="direction">
-				<button type="button" class="js-return-modal return" href="#modal1" ><i class="fa-solid fa-arrow-left"></i></button>
+				<button type="button" class="js-return-modal return" href="#modalsuppimg" ><i class="fa-solid fa-arrow-left" href="#modalsuppimg"></i></button>
 				<button type="button" class="js-close-modal close">Fermer la boite modal</button>
 			</div>
 			<h3 id="titlemodal">Ajout photo</h3>
-			<form action="ajoutphoto" method="post" id="ajoutphoto">
+			<form enctype="multipart/form-data" action="" method="post" id="ajoutphoto">
 				<div id="newimage">
 					<label for="image"> + Ajouter photo</label>
 					<input type="file" id="newfile" name="image"
@@ -39,16 +39,16 @@
 					<p>jpg, png: 4mo max</p>
 				</div>
 				<label for="titre">Titre</label>
-				<input type="text" name="titre" required="required">
+				<input type="text" name="titre" required="required" id="title">
 				<label for="categorie">Catégorie</label>
-				<select name="categorie" id="categorie-select" required="required">
+				<select name="categorie" required="required" id="categories">
 					<option value=""></option>
-					<option value="1"> Objets</option>
-					<option value="2">Appartements</option>
-					<option value="3">Hotels & restaurants</option>
+					<option class="category" value="1"> Objets</option>
+					<option class="category" value="2">Appartements</option>
+					<option class="category" value="3">Hotels & restaurants</option>
 				</select>
 				<hr>
-				<input type="submit" name="valider" value="Valider">
+				<input type="submit" name="valider" value="Valider" id="valider">
 			
 			</form>
 
@@ -75,13 +75,13 @@
 	<section id="introduction">
 		<figure>
 			<img src="./assets/images/sophie-bluel.png" alt="" id="profilpicture">
-			<a href="#modal2" class="buttonmodifier js-modal" style="display: none" id="lienmodal1">
+			<a href="#" class="buttonmodifier js-modal" style="display: none" id="lienmodal1">
 				<i class="fa-regular fa-pen-to-square"></i>
 				 modifier
 			</a>	
 		</figure>
 		<article>
-			<a href="#modal3" class="buttonmodifier js-modal" style="display: none" id="lienmodal2">
+			<a href="#" class="buttonmodifier js-modal" style="display: none" id="lienmodal2">
 				<i class="fa-regular fa-pen-to-square"></i>
 				 modifier
 			</a>
@@ -94,7 +94,7 @@
 	<section id="portfolio">
 		<div id="titleportfolio">
 			<h2>Mes Projets </h2> 
-			<a href="#modal1" class="buttonmodifier js-modal" style="display: none">
+			<a href="#modalsuppimg" class="buttonmodifier js-modal" style="display: none">
 				<i class="fa-regular fa-pen-to-square"></i>
 				 modifier
 			</a>
