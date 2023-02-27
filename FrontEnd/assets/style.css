@@ -395,3 +395,31 @@ hr {
 	width: 100%;
 	margin-bottom: 2em;
 }
+
+/*style de la boite d'ajout image*/
+#newimage , #newimage div{
+    background-color: #E8F1F6;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+#newfile {
+	opacity: 0;
+	position: absolute;
+}
+
+#buttonajout {
+	font-family: 'Syne';
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #306685;
+	border-radius: 60px; 
+	background-color: #CBD6DC;
+	margin-left: 1em;
+	padding: 1em;
+	min-width: 173px;
+}

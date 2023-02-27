@@ -33,9 +33,11 @@
 			<h3 id="titlemodal">Ajout photo</h3>
 			<form enctype="multipart/form-data" action="" method="post" id="ajoutphoto">
 				<div id="newimage">
-					<label for="image"> + Ajouter photo</label>
-					<input type="file" id="newfile" name="image"
-					accept="image/png, image/jpeg" required="required">
+					<img src="assets/icons/img-icon.png" alt="">
+					<div>
+						<label for="image" id="buttonajout"> + Ajouter photo</label>
+						<input type="file" id="newfile" name="image" accept="image/png, image/jpeg" required="required">
+					</div>					
 					<p>jpg, png: 4mo max</p>
 				</div>
 				<label for="titre">Titre</label>
@@ -48,7 +50,7 @@
 					<option class="category" value="3">Hotels & restaurants</option>
 				</select>
 				<hr>
-				<input type="submit" name="valider" value="Valider" id="valider">
+				<input type="submit" name="valider" value="Valider" id="valider" class="incomplet">
 			
 			</form>
 
