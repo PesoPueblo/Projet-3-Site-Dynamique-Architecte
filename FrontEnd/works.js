@@ -15,6 +15,7 @@ if (token != null){
     //affichage des boutons "modifier"
     const buttonModifier = document.querySelectorAll(".buttonmodifier");
     buttonModifier.forEach(element => {element.removeAttribute("style")});
+
     //cacher les filtres 
     const filters = document.querySelector("#filtres");
     filters.setAttribute("style", "display:none");
@@ -196,32 +197,9 @@ const openModal= function(event) {
 
     let boutonClose = modal.querySelector('.close'); 
     boutonClose.addEventListener('click',closeModal);
-
-     //ecoute du click poubelle
-    document.querySelectorAll(".fa-trash-can")
-    .forEach(element => {
-        element.addEventListener('click',function() {
-            deleteWorks(element)
-            })
-        }
-    );
-
-    //event du bouton ajout photo
-    const ajoutphoto= modal.querySelector('#ajout');
-    if (ajoutphoto != null){
-        ajoutphoto.addEventListener('click',closeModal);
-        ajoutphoto.addEventListener('click',openModal);
-    }
-
-    //event du click flèche retour 
-    const boutonReturn = modal.querySelector('.return');
-    if (boutonReturn != null){
-        boutonReturn.addEventListener('click',closeModal);
-        boutonReturn.addEventListener('click',openModal);
-    }
-
-     
+   
 }
+
 //fonction qui gère la fermeture des modals
 const closeModal= function(event) { 
     if (modal == null) return
@@ -233,6 +211,20 @@ const closeModal= function(event) {
     modal.querySelector('.close').removeEventListener('click',closeModal)
     modal.querySelector('.modalwrapeur').removeEventListener('click', stopPropag)
     modal=null
+}
+
+//event du click flèche retour 
+const boutonReturn = document.querySelector('.return');
+if (boutonReturn != null){
+    boutonReturn.addEventListener('click',closeModal);
+    boutonReturn.addEventListener('click',openModal);
+}
+
+//event du bouton ajout photo
+const ajoutphoto= document.querySelector('#ajout');
+if (ajoutphoto != null){
+    ajoutphoto.addEventListener('click',closeModal);
+    ajoutphoto.addEventListener('click',openModal);
 }
 
 //ecoute des clicks liens ouverture de modals
@@ -250,6 +242,16 @@ function deleteWorks (work) {
             headers:{'Authorization': 'Bearer ' + token}
         })
     }
+}
+
+//ecoute du click poubelle
+const buttonTrash = document.querySelectorAll(".fa-trash-can");
+if (buttonTrash != null) {
+    buttonTrash.forEach(element => {
+        element.addEventListener('click',function() {
+            deleteWorks(element)
+        })
+    })
 }
 
 //ajout d'image 
