@@ -15,39 +15,49 @@
 <body>
 	<aside id="modalsuppimg" class="modal" aria-hidden="true" style="display: none">
 		<div class="modalwrapeur">
-				<button type="button" class="js-close-modal close">Fermer la boite modal</button>
-			<h3 id="titlemodal">Galerie photo</h3>
+				<button type="button" class="js-close-modal close">
+					Fermer la boite modal
+				</button>
+			<h3 class="titlemodal">Galerie photo</h3>
 			<div class="gallerymodal">	
 			</div>
 			<hr>
-			<button type="button" class="active" id="ajout" href="#modalajoutimage">Ajouter une photo</button>
-			<a href="#" id="suppression">Supprimer la galerie</a>
+				<a href="#modalajoutimage" id="ajout">
+					Ajouter une photo
+				</a>
+			<a href="#" id="suppression">
+				Supprimer la galerie
+			</a>
 		</div>
 	</aside>
 	<aside id="modalajoutimage" class="modal" aria-hidden="true" style="display: none">
 		<div class="modalwrapeur">
 			<div class="direction">
-				<button type="button" class="js-return-modal return" href="#modalsuppimg" ><i class="fa-solid fa-arrow-left" href="#modalsuppimg"></i></button>
-				<button type="button" class="js-close-modal close">Fermer la boite modal</button>
+					<a href="#modalsuppimg" class="js-return-modal return">
+						<i class="fa-solid fa-arrow-left" class="arrow-js"></i>
+					</a>
+				<button type="button" class="js-close-modal close">
+					Fermer la boite modal
+				</button>
 			</div>
-			<h3 id="titlemodal">Ajout photo</h3>
-			<form enctype="multipart/form-data" action="" method="post" id="ajoutphoto">
+			<h3 class="titlemodal">Ajout photo</h3>
+			<form enctype="multipart/form-data" action="ajoutimage" method="post" id="ajoutphoto">
 				<div id="newimage">
-					<img src="assets/icons/img-icon.png" alt="">
+					<img src="assets/icons/img-icon.png" alt="" id="preview">
 					<div>
-						<label for="image" id="buttonajout"> + Ajouter photo</label>
-						<input type="file" id="newfile" name="image" accept="image/png, image/jpeg" required="required">
+						<label for="newfile" id="buttonajout"> + Ajouter photo</label>
+						<input type="file" id="newfile" name="image" accept="image/png, image/jpeg" required="required" onchange="previewFile()">
 					</div>					
-					<p>jpg, png: 4mo max</p>
+					<p id="parametre">jpg, png: 4mo max</p>
 				</div>
-				<label for="titre">Titre</label>
+				<label for="title">Titre</label>
 				<input type="text" name="titre" required="required" id="title">
-				<label for="categorie">Catégorie</label>
+				<label for="categories">Catégorie</label>
 				<select name="categorie" required="required" id="categories">
-					<option value=""></option>
-					<option class="category" value="1"> Objets</option>
-					<option class="category" value="2">Appartements</option>
-					<option class="category" value="3">Hotels & restaurants</option>
+					<option value="">  </option>
+					<option  value="1"> Objets</option>
+					<option  value="2">Appartements</option>
+					<option  value="3">Hotels & restaurants</option>
 				</select>
 				<hr>
 				<input type="submit" name="valider" value="Valider" id="valider" class="incomplet">

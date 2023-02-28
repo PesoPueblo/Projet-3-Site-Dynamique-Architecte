@@ -213,7 +213,7 @@ main {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -239,7 +239,7 @@ footer {
 	justify-content: center;
 	margin-bottom: 1em;
 }
-button
+button , #ajout
 {
 	font-family: 'Syne';
 display: flex;
@@ -266,20 +266,16 @@ min-width: 75px;
 	color: black;
 	align-items: flex-start;
 }
+
 .icon{
 	height: 15px;
 	width: auto;
-}
-.hide
-{
-	visibility: hidden;
 }
 
 a {
 	color: black;
 	outline: none;
 	text-decoration: none;
-	margin-bottom: 2em;
 }
 #lienmodal1 {
 
@@ -295,6 +291,7 @@ margin-left: 57px;
 }
 #titleportfolio a {
 	margin-left: 1em;
+	margin-bottom: 2em;
 }
 
 /*section style de la modal*/
@@ -315,7 +312,7 @@ margin-left: 57px;
     flex-direction: column;
     width: 630px;
     max-width: calc(100vw - 20px);
-    height: 731px;
+    min-height: 731px;
     padding: 20px;
     align-items: center;
 
@@ -365,9 +362,15 @@ margin-left: 57px;
 .return {
 	border: none;
 	color: black;
+    margin-bottom: 0;
+    height: 37px;
+    min-width: 75px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-#titlemodal {
+.titlemodal {
 	font-size: 26px;
 	font-family: 'Work Sans';
 	margin-bottom: 1em;
@@ -384,6 +387,11 @@ hr {
 	margin-bottom: 38px;
 }
 
+#ajout {
+	background-color: #1D6154;
+	color: white;
+}
+
 #suppression {
 	margin-top: 20px;
 	color: red;
@@ -394,6 +402,7 @@ hr {
 	justify-content: space-between;
 	width: 100%;
 	margin-bottom: 2em;
+    align-items: center;
 }
 
 /*style de la boite d'ajout image*/
@@ -422,4 +431,7 @@ hr {
 	margin-left: 1em;
 	padding: 1em;
 	min-width: 173px;
+}
+#preview {
+	max-height: 193px;
 }

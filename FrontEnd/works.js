@@ -65,6 +65,7 @@ function generateWork(works) {
         divGallery.appendChild(workElement);
         workElement.appendChild(imageElement);
         workElement.appendChild(titleElement);
+        
     }
 }
 
@@ -197,7 +198,17 @@ const openModal= function(event) {
 
     let boutonClose = modal.querySelector('.close'); 
     boutonClose.addEventListener('click',closeModal);
-   
+
+    //ecoute du click poubelle
+    const buttonTrash = document.querySelectorAll(".fa-trash-can");
+    if (buttonTrash != null){
+        buttonTrash.forEach(element => {
+            element.addEventListener('click',function() {
+                deleteWorks(element)
+            })
+        })
+    }
+
 }
 
 //fonction qui gère la fermeture des modals
@@ -215,11 +226,15 @@ const closeModal= function(event) {
 
 //event du click flèche retour 
 const boutonReturn = document.querySelector('.return');
-if (boutonReturn != null){
+if (boutonReturn != null ){
     boutonReturn.addEventListener('click',closeModal);
     boutonReturn.addEventListener('click',openModal);
 }
-
+const arrowReturn = document.querySelector('.arrow-js');
+if (arrowReturn != null){
+    arrowReturn.addEventListener('click',closeModal);
+    arrowReturn.addEventListener('click',openModal);
+}
 //event du bouton ajout photo
 const ajoutphoto= document.querySelector('#ajout');
 if (ajoutphoto != null){
@@ -244,16 +259,6 @@ function deleteWorks (work) {
     }
 }
 
-//ecoute du click poubelle
-const buttonTrash = document.querySelectorAll(".fa-trash-can");
-if (buttonTrash != null) {
-    buttonTrash.forEach(element => {
-        element.addEventListener('click',function() {
-            deleteWorks(element)
-        })
-    })
-}
-
 //ajout d'image 
 
 let form = document.querySelector('#ajoutphoto')
@@ -276,3 +281,22 @@ form.addEventListener('submit', (ajout)=> {
         body: newWork
     })
 })
+
+function previewFile() {
+    const preview = document.querySelector('#preview');
+    const file = document.querySelector('input[type=file]').files[0];
+    const reader = new FileReader();
+    const buttonfile = document.querySelector('#buttonajout')
+    const paramètre = document.querySelector('#parametre')
+  
+    reader.addEventListener("load", () => {
+      preview.src = reader.result;
+    }, false);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+      buttonfile.setAttribute('style', 'display: none')
+      paramètre.setAttribute('style', 'display: none')
+    }
+  }
+  
