@@ -23,7 +23,7 @@ if (token != null){
 }
 
 //création de la fonction génération travaux pour la modal
-function generateWorkModal(works) {
+async function generateWorkModal(works) {
         for (let i=0;i< works.length;i++) {
             let work = works[i]
             let workElementModal = document.createElement ("figure")
@@ -178,7 +178,7 @@ travaux .then(allWorks =>generateWorkModal(allWorks));
 let modal= null;
 const stopPropag = function(event){ event.stopPropagation()}
 
-const openModal= function(event) { 
+function openModal(event) { 
     event.preventDefault();
 
     //cible la modal à ouvrir
@@ -225,16 +225,12 @@ const closeModal= function(event) {
 }
 
 //event du click flèche retour 
-const boutonReturn = document.querySelector('.return');
+const boutonReturn = document.querySelector("#return");
 if (boutonReturn != null ){
     boutonReturn.addEventListener('click',closeModal);
     boutonReturn.addEventListener('click',openModal);
 }
-const arrowReturn = document.querySelector('.arrow-js');
-if (arrowReturn != null){
-    arrowReturn.addEventListener('click',closeModal);
-    arrowReturn.addEventListener('click',openModal);
-}
+
 //event du bouton ajout photo
 const ajoutphoto= document.querySelector('#ajout');
 if (ajoutphoto != null){
@@ -257,6 +253,7 @@ function deleteWorks (work) {
             headers:{'Authorization': 'Bearer ' + token}
         })
     }
+    else {return}
 }
 
 //ajout d'image 
@@ -298,5 +295,4 @@ function previewFile() {
       buttonfile.setAttribute('style', 'display: none')
       paramètre.setAttribute('style', 'display: none')
     }
-  }
-  
+}
