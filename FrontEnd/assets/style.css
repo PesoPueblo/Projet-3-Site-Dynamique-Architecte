@@ -121,7 +121,7 @@ nav li {
 	font-size: 1.2em;
 }
 
-li:hover {
+li:hover , li>a:hover {
 	color: #B1663C;
 }
 main {
@@ -239,6 +239,13 @@ footer {
 	justify-content: center;
 	margin-bottom: 1em;
 }
+
+.buttonfilter:hover, input[type="submit"]:hover ,#ajout:hover,{
+	background-color: #0E2F28;
+	color: white;
+
+}
+
 button , #ajout
 {
 	font-family: 'Syne';
