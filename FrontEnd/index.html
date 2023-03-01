@@ -52,7 +52,7 @@
 				<input type="text" name="titre" required="required" id="title">
 				<label for="categories">Catégorie</label>
 				<select name="categorie" required="required" id="categories">
-					<option value="">  </option>
+					<option value="">--sélectionnez une catégorie--</option>
 					<option  value="1"> Objets</option>
 					<option  value="2">Appartements</option>
 					<option  value="3">Hotels & restaurants</option>
@@ -73,8 +73,8 @@
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
-				<li>projets</li>
-				<li>contact</li>
+				<li><a href="#portfolio.html">projets</a></li>
+				<li><a href="#contact">contact</a></li>
 				<li id="connect"><a href="login.html">login</a></li>
 				<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 			</ul>
@@ -109,10 +109,10 @@
 				 modifier
 			</a>
 		</div><div id="filtres">
-			<button type="button" id="filtre_tous" class="active">Tous</button>
-			<button type="button" id="filtre_objets">Objets</button>
-			<button type="button" id="filtre_appartements">Appartements</button>
-			<button type="button" id="filtre_autres">Hôtel & restaurants</button>
+			<button type="button" id="filtre_tous" class="buttonfilter active">Tous</button>
+			<button type="button" id="filtre_objets" class="buttonfilter">Objets</button>
+			<button type="button" id="filtre_appartements" class="buttonfilter">Appartements</button>
+			<button type="button" id="filtre_autres" class="buttonfilter">Hôtel & restaurants</button>
 		</div>
 		<div class="gallery">
 			

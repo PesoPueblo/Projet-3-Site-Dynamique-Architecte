@@ -25,7 +25,6 @@ submit.addEventListener('click', (event) => {
 
    //créer une condition pour soit redirigé soit mettre un message d'erreur 
    .then(result => {
-      console.log(result);
       if (result.token){
          localStorage.setItem("token", result.token);
          window.location.assign("index.html")
