@@ -39,7 +39,7 @@
 				</button>
 			</div>
 			<h3 class="titlemodal">Ajout photo</h3>
-			<form enctype="multipart/form-data" action="ajoutimage" method="post" id="ajoutphoto">
+			<form enctype="multipart/form-data" action="ajoutimage" method="post" id="ajoutphoto" >
 				<div id="newimage">
 					<img src="assets/icons/img-icon.png" alt="" id="preview">
 					<div>
@@ -52,13 +52,13 @@
 				<input type="text" name="titre" required="required" id="title">
 				<label for="categories">Catégorie</label>
 				<select name="categorie" required="required" id="categories">
-					<option value="">--sélectionnez une catégorie--</option>
+					<option value=''>--sélectionnez une catégorie--</option>
 					<option  value="1"> Objets</option>
 					<option  value="2">Appartements</option>
 					<option  value="3">Hotels & restaurants</option>
 				</select>
 				<hr>
-				<input type="submit" name="valider" value="Valider" id="valider" class="valider" >
+				<input type="submit" name="valider" value="Valider" id="valider"  >
 			
 			</form>
 
@@ -90,7 +90,7 @@
 				 modifier
 			</a>	
 		</figure>
-		<article>
+		<div>
 			<a href="#" class="buttonmodifier js-modal" style="display: none" id="lienmodal2">
 				<i class="fa-regular fa-pen-to-square"></i>
 				 modifier
@@ -99,7 +99,7 @@
 			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
 			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
 			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
-		</article>
+		</div>
 	</section>
 	<section id="portfolio">
 		<div id="titleportfolio">

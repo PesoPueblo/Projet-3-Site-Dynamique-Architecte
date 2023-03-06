@@ -23,7 +23,7 @@ if (token != null){
 }
 
 //création de la fonction génération travaux pour la modal
-async function generateWorkModal(works) {
+function generateWorkModal(works) {
         for (let i=0;i< works.length;i++) {
             let work = works[i]
             let workElementModal = document.createElement ("figure")
@@ -252,46 +252,71 @@ function deleteWorks (work) {
             method:"DELETE",
             headers:{'Authorization': 'Bearer ' + token}
         })
+        .catch(function(err) {
+            console.log("Erreur dans la suppression de travaux ")
+        })
     }
     else {return}
 }
 
 //ajout d'image 
-
+//écoute de l'envoi du form
 let form = document.querySelector('#ajoutphoto')
+
+//gestion du changement de couleur du bouton submit
+//ecoute du form 
+form.addEventListener('input', () => {
+    let formCompleted = true;
+    //selection des champs input 
+    document.querySelectorAll('input[required]').forEach(input =>{
+            //condition de non réalisation à imposer si les champs ne sont pas rempli
+            if (input.value === ''||document.querySelector('select[required]').value === '' ) {formCompleted=false}
+    });
+    //mise en place de la condition de réalisation
+    if (formCompleted == true) {
+        //selection du submit et changement de la couleur de fond 
+        document.querySelector('#valider').setAttribute('style', 'background-color: #1D6154;');
+    }
+  });
+  
 form.addEventListener('submit', (ajout)=> {
     ajout.preventDefault();
+    //sélection des input
     let title=document.querySelector('#title').value
-    console.log(title)
     let image=document.querySelector('#newfile').files[0]
-    console.log(image)
     let categories = document.querySelector('#categories')
     let category = categories.value;
-    console.log(category)
+    //création d'un formData pour le fetch post 
     let newWork = new FormData();
     newWork.append('image',image);
     newWork.append('title',title);
     newWork.append('category',category);
+    //envoi à l'API
     fetch('http://localhost:5678/api/works', {
         method: 'POST',
         headers: {'Authorization': 'Bearer ' + token},
         body: newWork
     })
+    .catch(function(err) {
+        console.log("Erreur dans la génération des nouveaux travaux")
+    })
 })
 
+//création d'un visuel de l'image choisi
 function previewFile() {
-    const preview = document.querySelector('#preview');
-    const file = document.querySelector('input[type=file]').files[0];
+    const preview = document.querySelector('#preview');//séléction emplacement du preview
+    const file = document.querySelector('input[type=file]').files[0];//sélection du fichier à preview
     const reader = new FileReader();
-    const buttonfile = document.querySelector('#buttonajout')
-    const paramètre = document.querySelector('#parametre')
-  
+    const buttonfile = document.querySelector('#buttonajout')//sélection input ajout image
+    const paramètre = document.querySelector('#parametre')//sélection du p d'infos
+    //écoute du chargement de l'image choisi
     reader.addEventListener("load", () => {
-      preview.src = reader.result;
+      preview.src = reader.result;//changement du src du preview
     }, false);
   
     if (file) {
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file);//lecture de l'image à l'écran
+      //masquer les champs d'ajout et d'infos 
       buttonfile.setAttribute('style', 'display: none')
       paramètre.setAttribute('style', 'display: none')
     }
