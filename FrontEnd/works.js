@@ -22,28 +22,6 @@ if (token != null){
 
 }
 
-//création de la fonction génération travaux pour la modal
-function generateWorkModal(works) {
-        for (let i=0;i< works.length;i++) {
-            let work = works[i]
-            let workElementModal = document.createElement ("figure")
-            let imageElementModal = document.createElement('img');
-            imageElementModal.setAttribute ("src", work.imageUrl);
-            imageElementModal.setAttribute ("crossOrigin" , "anonymous");
-            imageElementModal.setAttribute ("alt" , work.title);
-            let buttonsuprimmer = document.createElement('i');
-            buttonsuprimmer.setAttribute('class',"fa-solid fa-trash-can")
-            buttonsuprimmer.setAttribute('id',work.id)
-            let titleEditionModal = document.createElement('figcaption');
-            titleEditionModal.innerText ="éditer";
-            const divGalleryModal= document.querySelector(".gallerymodal");
-            divGalleryModal.appendChild(workElementModal);
-            workElementModal.appendChild(imageElementModal);
-            workElementModal.appendChild(buttonsuprimmer)
-            workElementModal.appendChild(titleEditionModal);
-        }
-}
-
 //déclaration générale
 const divGallery = document.querySelector(".gallery");
 const filtreTous = document.getElementById("filtre_tous");
@@ -170,6 +148,28 @@ filtreAutres.addEventListener("click", function(){
     filtreAppartements.classList.remove("active");
     filtreObjets.classList.remove("active");
 });
+
+//création de la fonction génération travaux pour la modal
+function generateWorkModal(works) {
+    for (let i=0;i< works.length;i++) {
+        let work = works[i]
+        let workElementModal = document.createElement ("figure")
+        let imageElementModal = document.createElement('img');
+        imageElementModal.setAttribute ("src", work.imageUrl);
+        imageElementModal.setAttribute ("crossOrigin" , "anonymous");
+        imageElementModal.setAttribute ("alt" , work.title);
+        let buttonsuprimmer = document.createElement('i');
+        buttonsuprimmer.setAttribute('class',"fa-solid fa-trash-can")
+        buttonsuprimmer.setAttribute('id',work.id)
+        let titleEditionModal = document.createElement('figcaption');
+        titleEditionModal.innerText ="éditer";
+        const divGalleryModal= document.querySelector(".gallerymodal");
+        divGalleryModal.appendChild(workElementModal);
+        workElementModal.appendChild(imageElementModal);
+        workElementModal.appendChild(buttonsuprimmer)
+        workElementModal.appendChild(titleEditionModal);
+    }
+}
 
 //générer les travaux dans la modal
 travaux .then(allWorks =>generateWorkModal(allWorks));    
